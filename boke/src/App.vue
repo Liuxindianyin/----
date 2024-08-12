@@ -25,24 +25,33 @@ export default {
 
 <style>
 :root {
-  --bg-color: #ffffff;
-  --text-color: #000000;
-  --button-bg: #42b983;
+  --bg-color: #f5f5f5;
+  --text-color: #333333;
+  --primary-color: #6200ea; /* 主色 */
+  --secondary-color: #03dac5; /* 次色 */
+  --button-bg: var(--primary-color);
   --button-text: #ffffff;
-  --button-hover-bg: #369a73;
+  --button-hover-bg: #3700b3;
+  --card-bg: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --font-family: 'Roboto', sans-serif;
 }
 
 [data-theme='dark'] {
-  --bg-color: #1e1e1e;
+  --bg-color: #121212;
   --text-color: #ffffff;
-  --button-bg: #555555;
-  --button-text: #ffffff;
-  --button-hover-bg: #777777;
+  --primary-color: #bb86fc;
+  --secondary-color: #03dac5;
+  --button-bg: var(--primary-color);
+  --button-text: #000000;
+  --button-hover-bg: #3700b3;
+  --card-bg: #1f1f1f;
+  --card-shadow: rgba(0, 0, 0, 0.5);
 }
 
 body {
   margin: 0;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: var(--font-family);
   background-color: var(--bg-color);
   color: var(--text-color);
 }
@@ -59,9 +68,11 @@ button {
   cursor: pointer;
   padding: 10px 20px;
   border-radius: 5px;
+  transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
 button:hover {
+  transform: translateY(-3px);
   background-color: var(--button-hover-bg);
 }
 </style>

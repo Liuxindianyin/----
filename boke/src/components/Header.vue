@@ -17,7 +17,7 @@
   <style scoped>
   header {
     padding: 20px;
-    background-color: #42b983;
+    background-color: var(--primary-color);
     color: white;
     display: flex;
     justify-content: space-between;
@@ -34,5 +34,4 @@
     text-decoration: underline;
   }
   </style>
-  
   
