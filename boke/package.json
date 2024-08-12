@@ -9,10 +9,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "animejs": "^3.2.2",
+    "aos": "^2.3.4",
+    "nprogress": "^0.2.0",
+    "tsparticles": "^3.5.0",
     "vue": "^3.4.35"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.1.2",
+    "sitemap-webpack-plugin": "^1.1.1",
     "vite": "^5.4.0"
   }
 }

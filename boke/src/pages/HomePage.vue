@@ -1,19 +1,22 @@
 <template>
   <div id="home">
+    <!-- 粒子背景容器 -->
+    <div id="tsparticles"></div>
+    
     <!-- 顶部部分：介绍、欢迎语等 -->
-    <section class="hero">
+    <section class="hero" data-aos="fade-up">
       <h1>欢迎来到我的博客</h1>
       <p>探索医学与计算机科学的交叉点</p>
     </section>
 
     <!-- 成长经历部分 -->
-    <section class="timeline-section">
+    <section class="timeline-section" data-aos="fade-up">
       <h2>我的成长经历</h2>
       <Timeline :events="events" />
     </section>
 
     <!-- 博客文章部分 -->
-    <section class="blog-section">
+    <section class="blog-section" data-aos="fade-up">
       <h2>最新文章</h2>
       <PostList :posts="posts" />
     </section>
@@ -23,11 +26,86 @@
 <script>
 import Timeline from '../components/Timeline.vue';
 import PostList from '../components/PostList.vue';
+import { loadFull } from "tsparticles"; // 使用 loadFull 导入
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default {
   components: {
     Timeline,
     PostList
+  },
+  mounted() {
+    // 初始化粒子背景
+    loadFull(tsParticles);
+    tsParticles.load("tsparticles", {
+      fpsLimit: 60,
+      interactivity: {
+        events: {
+          onHover: {
+            enable: true,
+            mode: "repulse",
+          },
+          onClick: {
+            enable: true,
+            mode: "push",
+          },
+        },
+        modes: {
+          repulse: {
+            distance: 100,
+            duration: 0.4,
+          },
+          push: {
+            quantity: 4,
+          },
+        },
+      },
+      particles: {
+        color: {
+          value: "#ffffff",
+        },
+        links: {
+          color: "#ffffff",
+          distance: 150,
+          enable: true,
+          opacity: 0.5,
+          width: 1,
+        },
+        collisions: {
+          enable: true,
+        },
+        move: {
+          direction: "none",
+          enable: true,
+          outMode: "bounce",
+          random: false,
+          speed: 1,
+          straight: false,
+        },
+        number: {
+          density: {
+            enable: true,
+            area: 800,
+          },
+          value: 80,
+        },
+        opacity: {
+          value: 0.5,
+        },
+        shape: {
+          type: "circle",
+        },
+        size: {
+          random: true,
+          value: 5,
+        },
+      },
+      detectRetina: true,
+    });
+
+    // 初始化AOS动画
+    AOS.init();
   },
   data() {
     return {
@@ -36,21 +114,21 @@ export default {
           id: 1,
           title: '医学与计算机的交叉点',
           excerpt: '探索医学与计算机科学之间的紧密联系...',
-          coverImage: new URL('../assets/medical-computing.jpg', import.meta.url).href  // 使用 new URL 方式导入图片
+          coverImage: new URL('../assets/medical-computing.jpg', import.meta.url).href
         },
         {
           id: 2,
           title: '编程入门指南',
           excerpt: '了解编程的基础知识，从这里开始...',
-          coverImage: new URL('../assets/programming-basics.jpg', import.meta.url).href  // 使用 new URL 方式导入图片
+          coverImage: new URL('../assets/programming-basics.jpg', import.meta.url).href
         }
       ],
       events: [
-        { year: '2015', description: '开始攻读医学专业，并对计算机科学产生浓厚兴趣。' },
-        { year: '2017', description: '加入编程社团，开始学习编程语言，如Python和JavaScript。' },
-        { year: '2018', description: '完成了第一个医疗相关的编程项目，将编程应用于医学研究。' },
-        { year: '2020', description: '参与了多个开源项目，并在医学与编程领域取得了初步成果。' },
-        { year: '2022', description: '开始探索人工智能在医学中的应用，并参与相关研究项目。' }
+          { year: '2023.8', description: '在武汉大学开始攻读医学专业，并对计算机科学产生浓厚兴趣。' },
+          { year: '2023.11', description: '在学习高数两个月后，抱着试一试的态度参加了大学生数学竞赛，获得了三等奖' },
+          { year: '2024.4', description: '参加华中杯数学建模大赛，准备时间不长，最终拿到一个入门奖' },
+          { year: '2024.7', description: '参加了亚太杯中文赛区数模比赛' },
+          { year: '2024.8', description: '开始学习搭建网站，先后学习了html，css，js以及vue。' }
       ]
     };
   }
@@ -105,20 +183,12 @@ export default {
   color: #6200ea;
 }
 
-/* 视差背景效果 */
-#home::before {
-  content: '';
+/* 粒子背景容器样式 */
+#tsparticles {
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('../assets/hero-bg.jpg');
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
   z-index: -1;
-  filter: brightness(0.7);
 }
 
 /* 标题动画的关键帧 */
