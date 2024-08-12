@@ -3,6 +3,7 @@
       <nav>
         <router-link to="/">首页</router-link>
         <router-link to="/about">关于我</router-link>
+        <router-link to="/growth">成长经历</router-link> <!-- 添加新链接 -->
         <router-link to="/guestbook">留言板</router-link>
       </nav>
     </header>

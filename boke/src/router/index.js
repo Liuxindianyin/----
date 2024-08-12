@@ -4,13 +4,15 @@ import PostPage from '../pages/PostPage.vue';
 import AboutPage from '../pages/AboutPage.vue';
 import CategoryPage from '../pages/CategoryPage.vue';
 import GuestBook from '../pages/GuestBook.vue';
+import GrowthPage from '../pages/GrowthPage.vue';  // 导入新页面
 
 const routes = [
     { path: '/', component: HomePage },
     { path: '/post/:id', component: PostPage },
     { path: '/about', component: AboutPage },
     { path: '/category/:name', component: CategoryPage },
-    { path: '/guestbook', component: GuestBook }
+    { path: '/guestbook', component: GuestBook },
+    { path: '/growth', component: GrowthPage }  // 添加新路由
 ];
 
 const router = createRouter({
