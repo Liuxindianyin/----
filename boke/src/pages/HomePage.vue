@@ -154,12 +154,12 @@ export default {
 .hero h1 {
   font-size: 3em;
   margin-bottom: 0.5em;
-  animation: fadeInDown 1s ease-in-out;
+  animation: fadeInDown 0.5s ease-in-out;
 }
 
 .hero p {
   font-size: 1.5em;
-  animation: fadeInUp 1s ease-in-out;
+  animation: fadeInUp 0.5s ease-in-out;
 }
 
 .timeline-section,
@@ -170,7 +170,7 @@ export default {
 }
 
 .timeline-section {
-  background: linear-gradient(to right, #ece9e6, #ffffff);
+  background: linear-gradient(to right, #4b79a1, #283e51);
 }
 
 .blog-section {
@@ -190,7 +190,22 @@ export default {
   margin-bottom: 40px;
 }
 
-/* 粒子背景容器样式 */
+.timeline-item {
+  background-color: #3a3a8e;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-item h3 {
+  color: #ffffff;
+}
+
+.timeline-item p {
+  color: #d1d1d1;
+}
+
 #tsparticles {
   position: fixed;
   width: 100%;
@@ -201,7 +216,7 @@ export default {
 @keyframes fadeInDown {
   0% {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(-10px);
   }
   100% {
     opacity: 1;
@@ -212,7 +227,7 @@ export default {
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(10px);
   }
   100% {
     opacity: 1;

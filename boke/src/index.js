@@ -4,7 +4,7 @@ import AboutPage from '../pages/AboutPage.vue';
 import GrowthPage from '../pages/GrowthPage.vue';
 import GuestBook from '../pages/GuestBook.vue';
 import PostPage from '../pages/PostPage.vue';
-
+import DrugInteractionPage from '../pages/DrugInteractionPage.vue';
 
 const routes = [
     { path: '/', component: HomePage },
@@ -12,6 +12,7 @@ const routes = [
     { path: '/growth', component: GrowthPage },
     { path: '/guestbook', component: GuestBook },
     { path: '/post/:id', component: PostPage },
+    { path: '/drug-interaction', component: DrugInteractionPage },
 ];
 
 const router = createRouter({

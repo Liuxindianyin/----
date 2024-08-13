@@ -4,7 +4,8 @@ import AboutPage from '../pages/AboutPage.vue';
 import GrowthPage from '../pages/GrowthPage.vue';
 import GuestBook from '../pages/GuestBook.vue';
 import PostPage from '../pages/PostPage.vue';
-import AlgorithmPage from '../pages/AlgorithmPage.vue'; // 新增
+import AlgorithmPage from '../pages/AlgorithmPage.vue';
+import DrugInteractionPage from '../pages/DrugInteractionPage.vue'; // 确保此导入正确
 
 const routes = [
     { path: '/', component: HomePage },
@@ -12,12 +13,13 @@ const routes = [
     { path: '/growth', component: GrowthPage },
     { path: '/guestbook', component: GuestBook },
     { path: '/post/:id', component: PostPage },
-    { path: '/algorithm', component: AlgorithmPage }, // 新增
+    { path: '/algorithm', component: AlgorithmPage },
+    { path: '/drug-interaction', component: DrugInteractionPage }, // 确保此路径正确
 ];
 
 const router = createRouter({
     history: createWebHistory(),
-    routes
+    routes,
 });
 
 export default router;
