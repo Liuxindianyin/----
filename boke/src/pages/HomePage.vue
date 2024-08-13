@@ -1,24 +1,23 @@
 <template>
   <div id="home">
-    <!-- 粒子背景容器 -->
-    <div id="tsparticles"></div>
-    
-    <!-- 顶部部分：介绍、欢迎语等 -->
     <section class="hero" data-aos="fade-up">
       <h1>欢迎来到我的博客</h1>
       <p>探索医学与计算机科学的交叉点</p>
     </section>
 
-    <!-- 成长经历部分 -->
     <section class="timeline-section" data-aos="fade-up">
       <h2>我的成长经历</h2>
       <Timeline :events="events" />
     </section>
 
-    <!-- 博客文章部分 -->
     <section class="blog-section" data-aos="fade-up">
       <h2>最新文章</h2>
       <PostList :posts="posts" />
+    </section>
+
+    <section class="algorithm-section" data-aos="fade-up">
+      <h2>算法可视化</h2>
+      <AlgorithmVisualization />
     </section>
   </div>
 </template>
@@ -26,17 +25,18 @@
 <script>
 import Timeline from '../components/Timeline.vue';
 import PostList from '../components/PostList.vue';
-import { loadFull } from "tsparticles"; // 使用 loadFull 导入
+import AlgorithmVisualization from '../components/AlgorithmVisualization.vue';
+import { loadFull } from "tsparticles";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 export default {
   components: {
     Timeline,
-    PostList
+    PostList,
+    AlgorithmVisualization
   },
   mounted() {
-    // 初始化粒子背景
     loadFull(tsParticles);
     tsParticles.load("tsparticles", {
       fpsLimit: 60,
@@ -104,7 +104,6 @@ export default {
       detectRetina: true,
     });
 
-    // 初始化AOS动画
     AOS.init();
   },
   data() {
@@ -136,7 +135,6 @@ export default {
 </script>
 
 <style scoped>
-/* 全局背景设置，使用视差效果 */
 #home {
   background-color: #f0f0f0;
   overflow-x: hidden;
@@ -144,7 +142,7 @@ export default {
 
 .hero {
   height: 100vh;
-  background: linear-gradient(to right, #4e54c8, #8f94fb);
+  background: linear-gradient(to right, #3a3a8e, #9d50bb);
   color: white;
   display: flex;
   flex-direction: column;
@@ -164,23 +162,32 @@ export default {
   animation: fadeInUp 1s ease-in-out;
 }
 
+.timeline-section,
+.blog-section,
+.algorithm-section {
+  padding: 60px 0;
+  color: var(--text-color);
+}
+
 .timeline-section {
   background: linear-gradient(to right, #ece9e6, #ffffff);
-  padding: 60px 0;
 }
 
 .blog-section {
   background: linear-gradient(to right, #8e2de2, #4a00e0);
-  padding: 60px 0;
   color: white;
 }
 
+.algorithm-section {
+  background: linear-gradient(to right, #3a3a8e, #9d50bb);
+}
+
 .timeline-section h2,
-.blog-section h2 {
+.blog-section h2,
+.algorithm-section h2 {
   text-align: center;
   font-size: 2.5em;
   margin-bottom: 40px;
-  color: #6200ea;
 }
 
 /* 粒子背景容器样式 */
@@ -191,7 +198,6 @@ export default {
   z-index: -1;
 }
 
-/* 标题动画的关键帧 */
 @keyframes fadeInDown {
   0% {
     opacity: 0;

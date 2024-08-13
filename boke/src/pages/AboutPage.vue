@@ -1,24 +1,47 @@
 <template>
-  <div>
+  <div class="about-container">
     <h1>关于我</h1>
-    <p>我是武汉大学的医学生，对编程和医学的交叉领域有着浓厚的兴趣。</p>
-    <h2>技能</h2>
-    <ul>
-      <li>医学研究</li>
-      <li>Python 编程</li>
-      <li>Vue.js 开发</li>
-      <li>数据分析</li>
-    </ul>
-    <h2>项目经历</h2>
-    <ul>
-      <li>医学影像处理应用开发</li>
-      <li>健康数据分析工具</li>
-    </ul>
+    <p>
+      我是一个医学专业的学生，对计算机科学和编程有着浓厚的兴趣。
+      目前在探索如何将这两个领域结合起来，创造出更多有价值的成果。
+    </p>
+    <img :src="aboutMeImage" alt="About me">
   </div>
 </template>
 
 <script>
 export default {
-  name: 'AboutPage'
+  name: 'AboutPage',
+  data() {
+    return {
+      aboutMeImage: new URL('../assets/about-me.jpg', import.meta.url).href
+    };
+  }
 };
 </script>
+
+<style scoped>
+.about-container {
+  padding: 40px;
+  background: linear-gradient(to right, #4e54c8, #8f94fb);
+  color: white;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.about-container h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.about-container p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.about-container img {
+  max-width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+</style>
