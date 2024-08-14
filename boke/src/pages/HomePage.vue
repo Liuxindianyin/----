@@ -1,7 +1,7 @@
 <template>
   <div id="home">
     <section class="hero" data-aos="fade-up">
-      <h1>欢迎来到我的博客</h1>
+      <h1>欢迎来到我的网站</h1>
       <p>探索医学与计算机科学的交叉点</p>
     </section>
 

@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="logo">
-      <router-link to="/">个人博客</router-link>
+      <router-link to="/">网站</router-link>
     </div>
     <nav>
       <ul class="nav-links">
